@@ -65,7 +65,9 @@
         document.body.classList.remove("invert");
       }
       document.body.addEventListener('mousedown', invert);
+      document.body.addEventListener('touchstart', invert);
       document.body.addEventListener('mouseup', restore);
+      document.body.addEventListener('touchend', restore);
     </script>
   </body>
 </html>
