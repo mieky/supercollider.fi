@@ -4,6 +4,16 @@
     <title>supercollider</title>
     <meta charset="utf-8">
     <style type="text/css">
+      body {
+        background-color: white;
+        cursor: pointer;
+        overflow: hidden;
+        transition: background-color .4s ease-out;
+      }
+      body.invert {
+        background-color: #8D9FFC;
+      }
+
       .container {
         display: flex;
         width: 90vw;
@@ -12,12 +22,27 @@
         justify-content: center;
         margin: auto;
       }
+
       .logo {
         height: 245px;
         width: 889px;
         margin-top: -122px;
         background: url(images/supercollider.png) no-repeat;
         background-size: contain;
+
+        opacity: 0;
+        animation: fadein .4s ease-in;
+        animation-delay: .25s;
+        animation-fill-mode: forwards;
+        transform: opacity .4s ease-out;
+      }
+      .invert .logo {
+        background-image: url(images/supercollider-invert.png);
+      }
+
+      @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
       }
     </style>
   </head>
@@ -26,7 +51,15 @@
       <div class="logo" title="supercollider" role="image" aria-label="supercollider"></div>
     </div>
     <script>
-      console.log('%cmike@supercollider.fi', 'color: #8D9FFC');
+      console.log('%c\n Smashing atoms since 2020!\n mike@supercollider.fi\n', 'color: #8D9FFC');
+      function invert() {
+        document.body.classList.add("invert");
+      }
+      function restore() {
+        document.body.classList.remove("invert");
+      }
+      document.body.addEventListener('mousedown', invert);
+      document.body.addEventListener('mouseup', restore);
     </script>
   </body>
 </html>
