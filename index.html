@@ -40,6 +40,11 @@
         background-image: url(images/supercollider-invert.png);
       }
 
+      .preload {
+        background-image: url(images/supercollider-invert.png);
+        opacity: 0;
+      }
+
       @keyframes fadein {
         from { opacity: 0; }
         to   { opacity: 1; }
@@ -49,6 +54,7 @@
   <body>
     <div class="container">
       <div class="logo" title="supercollider" role="image" aria-label="supercollider"></div>
+      <div class="preload"></div>
     </div>
     <script>
       console.log('%c\n Smashing atoms since 2020!\n mike@supercollider.fi\n', 'color: #8D9FFC');
